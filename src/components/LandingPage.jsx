@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Utensils, TreePine, Bus, GraduationCap } from "lucide-react";
+import { useLenis } from "lenis/react";
 
 export function LandingPage() {
+  const lenis = useLenis();
   return (
     <div className="w-full bg-white selection:bg-slate-900 selection:text-white">
       {/* HERO SECTION */}
@@ -53,7 +55,10 @@ export function LandingPage() {
               transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="mt-8 sm:mt-10"
             >
-              <button className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-gray-200 transition-colors duration-300 cursor-pointer">
+              <button
+                onClick={() => lenis?.scrollTo("#overview")}
+                className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-4 font-bold text-sm tracking-widest uppercase hover:bg-gray-200 transition-colors duration-300 cursor-pointer"
+              >
                 Explore Residences
               </button>
             </motion.div>
@@ -71,13 +76,16 @@ export function LandingPage() {
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <ChevronDown className="text-white w-8 h-8 opacity-70 cursor-pointer hover:opacity-100 transition-opacity" />
+            <ChevronDown
+              onClick={() => lenis?.scrollTo("#overview")}
+              className="text-white w-8 h-8 opacity-70 cursor-pointer hover:opacity-100 transition-opacity"
+            />
           </motion.div>
         </motion.div>
       </section>
 
       {/* OVERVIEW SECTION */}
-      <section className="py-20 md:py-32 px-6 md:px-12 lg:px-24 container mx-auto text-slate-900">
+      <section id="overview" className="py-20 md:py-32 px-6 md:px-12 lg:px-24 container mx-auto text-slate-900">
 
         {/* Section Heading */}
         <motion.div
@@ -164,7 +172,7 @@ export function LandingPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="relative h-[400px] md:h-[600px] lg:h-[700px] w-full"
+            className="relative h-[400px] md:h-[600px] lg:h-[678px] w-full"
           >
             <img src="/interior.png" alt="Interior Architectural Vision" className="w-full h-full object-cover object-center shadow-2xl" />
           </motion.div>
@@ -173,7 +181,7 @@ export function LandingPage() {
       </section>
 
       {/* FEATURE GALLERY SECTION */}
-      <section className="py-20 md:py-32 px-6 md:px-12 lg:px-24 container mx-auto text-slate-900 bg-[#F3F4F6] md:bg-transparent">
+      <section id="gallery" className="py-20 md:py-32 px-6 md:px-12 lg:px-24 container mx-auto text-slate-900 bg-[#F3F4F6] md:bg-transparent">
 
         {/* Section Heading */}
         <motion.div
@@ -269,7 +277,7 @@ export function LandingPage() {
       </section>
 
       {/* LOCATION SECTION */}
-      <section className="py-20 md:py-32 px-6 md:px-12 lg:px-24 container mx-auto text-slate-900">
+      <section id="location" className="py-20 md:py-32 px-6 md:px-12 lg:px-24 container mx-auto text-slate-900">
 
         {/* Section Heading */}
         <motion.div
@@ -341,7 +349,7 @@ export function LandingPage() {
       </section>
 
       {/* CONTACT SECTION */}
-      <section className="py-20 md:py-32 px-6 md:px-12 lg:px-24 bg-[#0f172a] text-white">
+      <section id="contact" className="py-20 md:py-32 px-6 md:px-12 lg:px-24 bg-[#0f172a] text-white">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 

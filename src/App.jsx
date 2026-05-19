@@ -1,10 +1,13 @@
+import { ReactLenis } from "lenis/react";
 import { LandingPage } from "./components/LandingPage";
 
 function App() {
   return (
-    <div className="app-container">
-      <LandingPage />
-    </div>
+    <ReactLenis root>
+      <div className="app-container">
+        <LandingPage />
+      </div>
+    </ReactLenis>
   );
 }
 
